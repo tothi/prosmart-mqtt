@@ -10,12 +10,12 @@ tools (like Home Assistant).
 
 Test device used: [Computherm B300](https://computherm.info/hu/wi-fi_termosztatok/computherm_b300).
 
-## Auth Token and UserID
+## Access Token and UserID
 
 UserID is stored in the Browser Local Storage under logged_user key
 (JSON key "ID").
 
-Auth Token is the pss.auth cookie stored as a cookie in the logged in
+Access Token is the pss.auth cookie stored as a cookie in the logged in
 Browser.
 
 ## MQTT Topics
@@ -28,3 +28,18 @@ Browser.
 | Temperature to Set | prosmart/[device_name]/setpoint | ℃ | 
 | Temperature to Set (modify) | prosmart/[device_name]/set_temp | ℃ |
 
+## Home Assistant Example Configuration
+
+Example entry for `configuration.yml`:
+
+```yaml
+climate:
+  - platform: mqtt
+    current_temperature_topic: "prosmart/MyDevice/temperature"
+    max_temp: 45.0
+    min_temp: 10.0
+    temp_step: 0.1
+    name: "MyDevice"
+    temperature_command_topic: "prosmart/MyDevice/set_temp"
+    temperature_state_topic: "prosmart/MyDevice/setpoint"
+```
