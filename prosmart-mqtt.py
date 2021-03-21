@@ -61,7 +61,7 @@ async def poll_data_forever(device):
 
                     client.publish(topic=topic+"/temperature", payload=r['t_reading_1'], retain=True)
                     client.publish(topic=topic+"/humidity", payload=r['h_reading_1'], retain=True)
-                    client.publish(topic=topic+"/ldr", payload=r['ldr_reading_1'], retain=True)
+                    client.publish(topic=topic+"/ldr", payload=str(int(r['ldr_reading_1'])/10), retain=True)
                     client.publish(topic=topic+"/setpoint", payload=str(int(s)/100), retain=True)
 
             await asyncio.sleep(5)
