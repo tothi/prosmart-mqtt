@@ -38,12 +38,12 @@ async def get_user_devices():
         return device
 
 def search_json(arr, key, value):
-    for item in arr:
-        try:
+    try:
+        for item in arr:
             if item[key] == value:
                 return item
-        except:
-            pass
+    except:
+        pass
     return {}
 
 async def poll_data_forever(device):
