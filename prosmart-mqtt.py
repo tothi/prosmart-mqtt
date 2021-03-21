@@ -98,4 +98,11 @@ if ((args.mqttusername != "") and (args.mqttpassword != "")):
 client.connect(args.mqtthost, args.mqttport, 60)
 
 client.loop_start()
-asyncio.get_event_loop().run_until_complete(poll_data_forever(device))
+
+# retry in case of some failures
+while True:
+    try:
+        asyncio.get_event_loop().run_until_complete(poll_data_forever(device))
+    except:
+        print("[!] Exception in poll_data_forever loop. Retrying...")
+        pass
