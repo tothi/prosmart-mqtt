@@ -25,6 +25,6 @@ Browser.
 | Temperature | prosmart/[device_name]/temperature | ℃ |
 | Humidity    | prosmart/[device_name]/humidity    | % |
 | LDR         | prosmart/[device_name]/ldr         | % |
-| Temperature to Set | prosmart/[device_name]/setpoint | ℃/100 | 
+| Temperature to Set | prosmart/[device_name]/setpoint | ℃ | 
 | Temperature to Set (modify) | prosmart/[device_name]/set_temp | ℃ |
 

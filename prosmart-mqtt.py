@@ -52,6 +52,7 @@ async def poll_data_forever(device):
             p2 = {"action":"init_devices","data":{"user_id":user_id,"device_list":[device]},"access_token":access_token,"callback_id":2}
             await websocket.send(json.dumps(p2))
             greeting = json.loads(await websocket.recv())
+            print(greeting)
 
             if 'callback_id' in greeting.keys():
                 if greeting['callback_id'] == 2:
@@ -61,7 +62,7 @@ async def poll_data_forever(device):
                     client.publish(topic=topic+"/temperature", payload=r['t_reading_1'], retain=True)
                     client.publish(topic=topic+"/humidity", payload=r['h_reading_1'], retain=True)
                     client.publish(topic=topic+"/ldr", payload=r['ldr_reading_1'], retain=True)
-                    client.publish(topic=topic+"/setpoint", payload=s, retain=True)
+                    client.publish(topic=topic+"/setpoint", payload=str(int(s)/100), retain=True)
 
             await asyncio.sleep(5)
 
