@@ -2,7 +2,7 @@
 
 Minimal MQTT interface for proSmart Thermostat devices.
 
-> NOTE: This project is obsolete. If interested in Home Assistant integration, look for the awesome work of [zadoli](https://github.com/zadoli): [ha-computherm-b](`https://github.com/zadoli/ha-computherm-b)
+> NOTE: This project is obsolete. If interested in Home Assistant integration, look for the awesome work of [zadoli](https://github.com/zadoli): [ha-computherm-b](https://github.com/zadoli/ha-computherm-b)
 
 Reading Temperature, Humidity and LDR (Light Dependent Resistor) sensor values
 and setting the target temperature functions are supported.
